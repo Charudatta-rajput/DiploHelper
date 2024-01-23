@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/mountain"
+    tools:context=".MainLogin_Activity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/calibri"
+        android:layout_marginTop="25dp"
+        android:text="Tell Us About You"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="#FB8C00"
+        android:textSize="40dp">
+
+    </TextView>
+
+
+    <ImageButton
+        android:id="@+id/Student_Button"
+        android:layout_width="300dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/roundcorner"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/logo2"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <ImageButton
+        android:id="@+id/Teacher_Button"
+        android:layout_width="300dp"
+        android:layout_height="225dp"
+        android:background="@drawable/roundcorner"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/teacher2"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+</LinearLayout>

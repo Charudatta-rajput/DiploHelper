@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "224979156034",
+    "firebase_url": "https://diplohelper-ef72b-default-rtdb.firebaseio.com",
+    "project_id": "diplohelper-ef72b",
+    "storage_bucket": "diplohelper-ef72b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224979156034:android:42c6977832d38f759681db",
+        "android_client_info": {
+          "package_name": "com.bhavesh.diplohelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224979156034-aa8pgred1lpl772s3pkag7legfj0aj9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bhavesh.diplohelper",
+            "certificate_hash": "8a1ec606443ee1192449fb7c910256acb0b915c4"
+          }
+        },
+        {
+          "client_id": "224979156034-8vd0ldvnoeiokdiplnh7fkecu7vdst84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeOOgAsMfg7Wq459Ayj_T5Lh2bIJnw4yY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224979156034-2sncok7g44p2hou9gkv4mf4sr14hlosr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
