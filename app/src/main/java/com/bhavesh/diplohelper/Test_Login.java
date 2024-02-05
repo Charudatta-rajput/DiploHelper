@@ -214,7 +214,7 @@ public class Test_Login extends AppCompatActivity {
                     String passwordFromDB =snapshot.child(userPassword).getValue(String.class);
                     if (!Objects.equals(passwordFromDB,userPassword)){
                         LoginUsername.setError(null);
-                        Intent intent = new Intent(Test_Login.this, PDF_Upload_Activity.class);
+                        Intent intent = new Intent(Test_Login.this, SliderActivity.class);
                         startActivity(intent);
                         finish();
 

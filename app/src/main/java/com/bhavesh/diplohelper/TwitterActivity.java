@@ -32,7 +32,7 @@ public class TwitterActivity extends Test_Signup {
                             new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-                                    startActivity(new Intent(TwitterActivity.this,HOME_ACTIVITY.class));
+                                    startActivity(new Intent(TwitterActivity.this,PDF_Upload_Activity.class));
                                     Toast.makeText(TwitterActivity.this,"Login Successful",Toast.LENGTH_SHORT);
                                 }
                             })
@@ -50,7 +50,7 @@ public class TwitterActivity extends Test_Signup {
                             new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-                                    startActivity(new Intent(TwitterActivity.this,HOME_ACTIVITY.class));
+                                    startActivity(new Intent(TwitterActivity.this,PDF_Upload_Activity.class));
                                     Toast.makeText(TwitterActivity.this,"Login Successful",Toast.LENGTH_SHORT);
                                 }
                             })

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET">
-    </uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE">
-    </uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
-    </uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,6 +17,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiploHelper"
         tools:targetApi="31">
+        <activity
+            android:name=".Try"
+            android:exported="false"
+            android:label="@string/title_activity_try"
+            android:theme="@style/Theme.DiploHelper" />
+        <activity
+            android:name=".English_Sem1"
+            android:exported="false" />
+        <activity
+            android:name=".Computer_Sem1"
+            android:exported="false" />
+        <activity
+            android:name=".Computer_Select_Sem"
+            android:exported="false" />
+        <activity
+            android:name=".SliderActivity"
+            android:exported="false"
+            android:label="@string/title_activity_slider"
+            android:theme="@style/Theme.DiploHelper.NoActionBar" />
+        <activity
+            android:name=".Slider"
+            android:exported="false"
+            android:label="@string/title_activity_slider"
+            android:theme="@style/Theme.DiploHelper.NoActionBar" />
+        <activity
+            android:name=".bottom_navigation"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity
+            android:name=".Test_Branch"
+            android:exported="false"
+            android:label="@string/title_activity_test_branch" />
+        <activity
+            android:name=".Select_Branch"
+            android:exported="false"
+            android:label="@string/title_activity_select_branch" />
+        <activity
+            android:name=".AdminTechLogin"
+            android:exported="false" />
+        <activity
+            android:name=".TeacherLogin"
+            android:exported="false" />
+        <activity
+            android:name=".RetrivePDF"
+            android:exported="false" />
         <activity
             android:name=".ViewPDF_Activity"
             android:exported="false" />
@@ -82,6 +127,17 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.bhavesh.diplohelper.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+    </provider>
     </application>
 
 </manifest>

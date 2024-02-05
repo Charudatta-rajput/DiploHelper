@@ -9,25 +9,36 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+import java.io.IOException;
 
 public class PDF_Upload_Activity extends AppCompatActivity {
 
     DatabaseReference reference;
     StorageReference Storagereference;
 
-    Button Select_pdf,Upload_pdf;
+    Button Upload_pdf,Access_PDF;
 
     Uri pdfData;
+
+    EditText et;
 
     private final int REQ = 1;
 
@@ -36,18 +47,15 @@ public class PDF_Upload_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_upload);
 
-        Select_pdf = findViewById(R.id.Select_pdf_btn);
+        et = findViewById(R.id.edtext);
         Upload_pdf =findViewById(R.id.Upload_pdf_btn);
+        Access_PDF = findViewById(R.id.Access_pdf_btn);
 
         reference = FirebaseDatabase.getInstance().getReference();
-        Storagereference = FirebaseStorage.getInstance().getReference();
+        Storagereference = FirebaseStorage.getInstance().getReference("UploadPDF/test");
 
-        Select_pdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGallery();
-            }
-        });
+
+
 
         Upload_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +68,8 @@ public class PDF_Upload_Activity extends AppCompatActivity {
                 startActivityForResult(galleryIntent, 1);
             }
         });
+
+
     }
 
     ProgressDialog dialog;
@@ -78,59 +88,46 @@ public class PDF_Upload_Activity extends AppCompatActivity {
             dialog.show();
             pdfData = data.getData();
             final String timestamp = "" + System.currentTimeMillis();
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference("UploadPDF/Try");
             final String messagePushID = timestamp;
+            String pdfname = et.getText().toString().trim();
             Toast.makeText(PDF_Upload_Activity.this, pdfData.toString(), Toast.LENGTH_SHORT).show();
 
             // Here we are uploading the pdf in firebase storage with the name of current time
-            final StorageReference filepath = storageReference.child(messagePushID + "." + "pdf");
+            final StorageReference filepath = storageReference.child(pdfname + "." + "pdf");
             Toast.makeText(PDF_Upload_Activity.this, filepath.getName(), Toast.LENGTH_SHORT).show();
-            filepath.putFile(pdfData).continueWithTask(new Continuation() {
+            filepath.putFile(pdfData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public Object then(@NonNull Task task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-                    return filepath.getDownloadUrl();
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                    while (!uriTask.isComplete());
+                    Uri uri = uriTask.getResult();
+
+                    putPDF putPDF = new putPDF(et.getText().toString(),uri.toString());
+                    reference.child(reference.push().getKey()).setValue(putPDF);
+                    Toast.makeText(PDF_Upload_Activity.this,"File Upload",Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+
                 }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
-                        // After uploading is done it progress
-                        // dialog box will be dismissed
-                        dialog.dismiss();
-                        Uri uri = task.getResult();
-                        String myurl;
-                        myurl = uri.toString();
-                        Toast.makeText(PDF_Upload_Activity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                    } else {
-                        dialog.dismiss();
-                        Toast.makeText(PDF_Upload_Activity.this, "UploadedFailed", Toast.LENGTH_SHORT).show();
-                    }
+                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+
+                    double progress = (100.0* snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
+                    dialog.setMessage("File Uploaded.."+(int) progress+"%");
+
                 }
             });
+
         }
     }
 
-
-    public void openGallery(){
-        Intent intent = new Intent();
-        intent.setType("application/pdf/docs/ppt");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Select PDF FILE"),REQ);
+    public void retrivePDF(View view){
+        startActivity(new Intent(getApplicationContext(),RetrivePDF.class));
     }
 
-    public void OnActivityResult(int reqcode, int resultcode, @Nullable Intent data){
 
-        super.onActivityResult(reqcode,resultcode,data);
-
-        if(reqcode == REQ && resultcode == RESULT_OK){
-            pdfData = data.getData();
-            Toast.makeText(this, ""+pdfData, Toast.LENGTH_SHORT).show();
-        }
-
-
+    public void retrievePDF(View view) {
+        startActivity(new Intent(getApplicationContext(),RetrivePDF.class));
     }
-
 }

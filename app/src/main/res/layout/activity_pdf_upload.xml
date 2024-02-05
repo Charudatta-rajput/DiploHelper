@@ -8,20 +8,31 @@
     android:orientation="vertical"
     tools:context=".PDF_Upload_Activity">
 
-    <Button
-        android:id="@+id/Select_pdf_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select PDF"
-        android:layout_gravity="center">
+  <EditText
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/edtext"
+      android:hint="select file from Pdf"
+      android:textColor="#0000ff"
+      android:layout_gravity="center">
 
-    </Button>
+  </EditText>
 
     <Button
         android:id="@+id/Upload_pdf_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upload PDF"
+        android:layout_gravity="center">
+
+    </Button>
+
+    <Button
+        android:id="@+id/Access_pdf_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Access PDF"
+        android:onClick="retrievePDF"
         android:layout_gravity="center">
 
     </Button>
