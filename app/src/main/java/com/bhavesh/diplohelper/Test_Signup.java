@@ -157,7 +157,7 @@ public class Test_Signup extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), SliderActivity.class);
                                     startActivity(intent);
                                     finish();
 
@@ -181,7 +181,7 @@ public class Test_Signup extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!= null){
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, SliderActivity.class);
             startActivity(intent);
             finish();
         }

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarSize="10sp"
+    tools:context=".Computer_Select_Sem">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Computer_Select_Sem">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Computer"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:fontFamily="@font/calibri"
+        android:textSize="50sp"
+        android:background="#1E88E5">
+
+    </TextView>
+    <ImageButton
+        android:id="@+id/Comp_sem1"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/roundsem"
+        app:srcCompat="@drawable/one"
+        />
+
+    <ImageButton
+        android:id="@+id/Comp_sem2"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundsem"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/two"
+        />
+    <ImageButton
+        android:id="@+id/Comp_sem3"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/roundsem"
+        app:srcCompat="@drawable/three"
+        />
+    <ImageButton
+        android:id="@+id/Comp_sem4"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundsem"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/four"
+        />
+    <ImageButton
+        android:id="@+id/Comp_sem5"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/roundsem"
+        app:srcCompat="@drawable/five"
+        />
+    <ImageButton
+        android:id="@+id/Comp_sem6"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/roundsem"
+        app:srcCompat="@drawable/six"
+        />
+
+</LinearLayout>
+
+</ScrollView>
+
