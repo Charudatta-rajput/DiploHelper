@@ -6,6 +6,11 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.bhavesh.diplohelper.ui.contact.ContactFragment"
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
         android:id="@+id/nav_home"
         android:name="com.bhavesh.diplohelper.ui.home.HomeFragment"
         android:label="@string/menu_home"
@@ -22,4 +27,5 @@
         android:name="com.bhavesh.diplohelper.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
 </navigation>

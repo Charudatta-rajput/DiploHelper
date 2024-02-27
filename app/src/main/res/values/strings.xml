@@ -73,4 +73,6 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="civil">Civil</string>
+    <string name="title_activity_item_message">item_message</string>
+    <string name="chat_room">Chat Room</string>
 </resources>

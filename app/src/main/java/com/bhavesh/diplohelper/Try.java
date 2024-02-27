@@ -15,11 +15,14 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +46,10 @@ public class Try extends AppCompatActivity {
     List<String> pdfFileNames;
     long downloadId;
 
+    EditText  searchEditText;
+
+    ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +58,7 @@ public class Try extends AppCompatActivity {
 
         pdfListView = findViewById(R.id.trylistview);
         pdfFileNames = new ArrayList<>();
+        searchEditText  =findViewById(R.id.searchEditText);
 
 
         // Initialize Firebase Storage
@@ -58,10 +66,28 @@ public class Try extends AppCompatActivity {
         StorageReference nestedFolderRef = storage.getReference().child("UploadPDF/Try");
         DatabaseReference pdfNamesRef = FirebaseDatabase.getInstance().getReference().child("pdfFileNames");
 
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // No action needed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Filter the PDF names based on the search query
+                filterPdfNames(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // No action needed
+            }
+        });
 
         pdfListView.setOnItemClickListener((parent, view, position, id) -> {
             String selectedFileName = pdfFileNames.get(position);
             StorageReference pdfReference = nestedFolderRef.child(selectedFileName);
+
 
             pdfReference.getDownloadUrl()
                     .addOnSuccessListener(uri -> {
@@ -70,6 +96,7 @@ public class Try extends AppCompatActivity {
                     })
                     .addOnFailureListener(e -> Log.e("Firebase", "Error getting download URL for PDF", e));
         });
+
 
 
         // List all PDF files in the folder
@@ -87,7 +114,7 @@ public class Try extends AppCompatActivity {
                             }
                         }
 
-                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Try.this, android.R.layout.simple_list_item_1, pdfFileNames){
+                         adapter = new ArrayAdapter<String>(Try.this, android.R.layout.simple_list_item_1, pdfFileNames){
 
                         // Display the list of PDF file names in the TextView
                         @NonNull
@@ -150,7 +177,9 @@ public class Try extends AppCompatActivity {
             Log.e("PDFView", "Error opening PDF file", e);
         }
     }
-
+    private void filterPdfNames(String query) {
+        adapter.getFilter().filter(query);
+    }
 
 }
 

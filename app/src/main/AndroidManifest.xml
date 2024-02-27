@@ -3,9 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Network permissions -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- FCM permission -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Package name permission (replace your.package.name with your actual package name) -->
+    <permission
+        android:name="your.package.name.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="your.package.name.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +30,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiploHelper"
         tools:targetApi="31">
+        <activity
+            android:name=".item_message"
+            android:exported="false"
+            android:label="@string/title_activity_item_message"
+            android:theme="@style/Theme.DiploHelper" />
         <activity
             android:name=".Try"
             android:exported="false"
@@ -37,23 +55,6 @@
             android:label="@string/title_activity_slider"
             android:theme="@style/Theme.DiploHelper.NoActionBar" />
         <activity
-            android:name=".Slider"
-            android:exported="false"
-            android:label="@string/title_activity_slider"
-            android:theme="@style/Theme.DiploHelper.NoActionBar" />
-        <activity
-            android:name=".bottom_navigation"
-            android:exported="false"
-            android:label="@string/title_activity_bottom_navigation" />
-        <activity
-            android:name=".Test_Branch"
-            android:exported="false"
-            android:label="@string/title_activity_test_branch" />
-        <activity
-            android:name=".Select_Branch"
-            android:exported="false"
-            android:label="@string/title_activity_select_branch" />
-        <activity
             android:name=".AdminTechLogin"
             android:exported="false" />
         <activity
@@ -63,22 +64,11 @@
             android:name=".RetrivePDF"
             android:exported="false" />
         <activity
-            android:name=".ViewPDF_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ViewPDF"
-            android:exported="false" />
-        <activity
             android:name=".PDF_Upload_Activity"
             android:exported="false" />
         <activity
             android:name=".TwitterActivity"
             android:exported="false" />
-        <activity
-            android:name=".HOME_ACTIVITY"
-            android:exported="false"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.DiploHelper.NoActionBar" />
         <activity
             android:name=".Test_Signup"
             android:exported="false" />
@@ -87,12 +77,6 @@
             android:exported="false" />
         <activity
             android:name=".Forget_pass"
-            android:exported="false" />
-        <activity
-            android:name=".PasswordForgot"
-            android:exported="false" />
-        <activity
-            android:name=".ForgetPassword"
             android:exported="false" />
         <activity
             android:name=".Firstpage"
@@ -132,12 +116,14 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.bhavesh.diplohelper.provider"
             android:exported="false"
-            android:grantUriPermissions="true"
-            >
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/provider_paths" />
-    </provider>
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+>
+
     </application>
 
 </manifest>

@@ -6,13 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".Try">
 
-
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search PDFs"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:inputType="text"
+        android:imeOptions="actionDone"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/trylistview"
         android:background="@drawable/mountain"
         android:dividerHeight="2dp"
+        android:layout_below="@id/searchEditText"
         android:divider="@color/white"
         android:footerDividersEnabled = "false"
         android:headerDividersEnabled = "false"
@@ -20,5 +30,6 @@
 
 
     </ListView>
+
 
 </RelativeLayout>

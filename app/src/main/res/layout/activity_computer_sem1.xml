@@ -7,56 +7,72 @@
     android:orientation="vertical"
     tools:context=".Computer_Sem1">
 
-   <Button
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Subjects"
+       android:gravity="center"
+       android:textStyle="bold"
+       android:textColor="@color/black"
+       android:fontFamily="@font/calibri"
+       android:textSize="50sp"
+       android:background="#1E88E5">
+   </TextView>
+   <androidx.appcompat.widget.AppCompatButton
        android:layout_width="match_parent"
        android:id="@+id/English"
        android:layout_height="wrap_content"
        android:textSize="30sp"
+       android:layout_marginTop="20dp"
        android:onClick="retrivePDF"
        android:textColor="@color/black"
-
+        android:background="#00ACC1"
        android:text="English">
 
-   </Button>
+   </androidx.appcompat.widget.AppCompatButton>
 
-   <Button
+   <androidx.appcompat.widget.AppCompatButton
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/Science"
        android:textSize="30sp"
+       android:background="#00ACC1"
        android:layout_marginTop="20dp"
        android:textColor="@color/black"
        android:text="Basic Science">
 
-   </Button>
+   </androidx.appcompat.widget.AppCompatButton>
 
-   <Button
+   <androidx.appcompat.widget.AppCompatButton
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/math"
        android:textSize="30sp"
        android:layout_marginTop="20dp"
        android:textColor="@color/black"
+       android:background="#00ACC1"
        android:text="Basic Mathematics">
-   </Button>
+   </androidx.appcompat.widget.AppCompatButton>
 
-   <Button
+   <androidx.appcompat.widget.AppCompatButton
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:textSize="30sp"
+       android:background="#00ACC1"
        android:textColor="@color/black"
        android:layout_marginTop="20dp"
        android:text="Lab Manuals">
-   </Button>
+   </androidx.appcompat.widget.AppCompatButton>
 
-   <Button
+   <androidx.appcompat.widget.AppCompatButton
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:textSize="30sp"
        android:layout_marginTop="20dp"
+       android:background="#00ACC1"
        android:textColor="@color/black"
        android:text="Micro Projects">
-   </Button>
+   </androidx.appcompat.widget.AppCompatButton>
 
 
 

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainLogin_Activity extends AppCompatActivity {
 
     ImageButton StudenButton,Teacher_Button;
