@@ -17,4 +17,8 @@ public class Computer_Sem1 extends AppCompatActivity {
     public void retrivePDF(View view) {
         startActivity(new Intent(getApplicationContext(),Try.class));
     }
+    public void retriveMath(View view) {
+        startActivity(new Intent(getApplicationContext(),Math.class));
+    }
+
 }

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Try">
+    tools:context=".Math">
 
     <EditText
-        android:id="@+id/searchEditText"
+        android:id="@+id/math_search"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Search PDFs"
@@ -18,17 +19,14 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/trylistview"
+        android:id="@+id/math_listview"
         android:background="@drawable/mountain"
         android:dividerHeight="2dp"
-        android:layout_below="@id/searchEditText"
+        android:layout_below="@id/math_search"
         android:divider="@color/white"
         android:footerDividersEnabled = "false"
         android:headerDividersEnabled = "false"
-        android:padding="7dp">
-
-
-    </ListView>
+        android:padding="7dp"/>
 
 
 </RelativeLayout>

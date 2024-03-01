@@ -31,6 +31,18 @@
         android:theme="@style/Theme.DiploHelper"
         tools:targetApi="31">
         <activity
+            android:name=".Math"
+            android:exported="false" />
+        <activity
+            android:name=".tech_comp_sem1"
+            android:exported="false" />
+        <activity
+            android:name=".tech_comp_sem"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher_Home"
+            android:exported="false" />
+        <activity
             android:name=".item_message"
             android:exported="false"
             android:label="@string/title_activity_item_message"
@@ -121,9 +133,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
->
-
     </application>
 
 </manifest>

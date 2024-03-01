@@ -31,7 +31,7 @@ public class MainLogin_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainLogin_Activity.this, PDF_Upload_Activity.class);
+                Intent intent = new Intent(MainLogin_Activity.this, Teacher_Home.class);
                 startActivity(intent);
             }
         });

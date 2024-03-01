@@ -47,6 +47,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/math"
+       android:onClick="retriveMath"
        android:textSize="30sp"
        android:layout_marginTop="20dp"
        android:textColor="@color/black"

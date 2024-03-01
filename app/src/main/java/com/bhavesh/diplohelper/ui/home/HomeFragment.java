@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -20,7 +21,7 @@ public class HomeFragment extends Fragment {
 
   
 
-ImageButton computer;
+CardView computer;
 
 private FragmentHomeBinding binding;
 
@@ -41,7 +42,7 @@ private FragmentHomeBinding binding;
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-      computer  = (ImageButton) view.findViewById(R.id.computer);
+      computer  = (CardView) view.findViewById(R.id.computer);
 
        computer.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,3 +1,5 @@
+import java.util.regex.Pattern.compile
+
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
@@ -47,6 +49,7 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-messaging:23.4.1")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.cardview:cardview:1.0.0")
 //    implementation("com.google.firebase:firebase-database:20.3.0")
 //    implementation("com.google.firebase:firebase-auth:22.3.1")
     testImplementation("junit:junit:4.13.2")
@@ -72,7 +75,12 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
     implementation("com.google.gms:google-services:4.4.1")
 
-        // ...
+
+
+
+
+
+    // ...
         // Replace with the latest version
 
 

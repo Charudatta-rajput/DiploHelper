@@ -15,11 +15,15 @@
        
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/baseline_account_circle_24"
-            android:title="Account" />
+            android:icon="@drawable/baseline_add_call_24"
+            android:title="Contact" />
         <item
             android:id="@+id/nav_contact"
-            android:icon="@drawable/baseline_account_circle_24"
+            android:icon="@drawable/baseline_chat_bubble_24"
             android:title="ChatAi" />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/baseline_account_circle_24"
+            android:title="Account" />
     </group>
 </menu>
