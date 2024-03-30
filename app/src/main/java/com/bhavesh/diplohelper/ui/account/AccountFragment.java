@@ -1,11 +1,12 @@
 package com.bhavesh.diplohelper.ui.account;
-import com.bhavesh.diplohelper.R;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bhavesh.diplohelper.HelperClass;
+import com.bhavesh.diplohelper.R;
+import com.bhavesh.diplohelper.Test_Signup;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AccountFragment extends Fragment {
 
     private TextView nameTextView, emailTextView, usernameTextView, passwordTextView;
+    private ImageButton logoutImageButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +38,15 @@ public class AccountFragment extends Fragment {
         emailTextView = view.findViewById(R.id.emailTextView);
         usernameTextView = view.findViewById(R.id.usernameTextView);
         passwordTextView = view.findViewById(R.id.passwordTextView);
+        logoutImageButton = view.findViewById(R.id.logout);
+
+        logoutImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call the logout function when ImageButton is clicked
+                logout();
+            }
+        });
 
         return view;
     }
@@ -74,11 +87,20 @@ public class AccountFragment extends Fragment {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     Log.e("Data", "onCancelled called", databaseError.toException());
                     // Handle database error
                 }
             });
         }
+    }
+
+    private void logout() {
+        // Sign out the current user
+        FirebaseAuth.getInstance().signOut();
+
+
+        Intent intent = new Intent(getActivity(), Test_Signup.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 }

@@ -34,7 +34,7 @@ public class SlideshowFragment extends Fragment {
         whatsappImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWhatsAppChat("1234567890"); // Replace with your WhatsApp number
+                openWhatsAppChat("9112270961"); // Replace with your WhatsApp number
             }
         });
 

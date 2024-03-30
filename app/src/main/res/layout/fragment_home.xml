@@ -66,6 +66,9 @@
                 android:layout_height="match_parent"
                 android:id="@+id/computer"
                 android:layout_margin="10dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:elevation="12dp"
                 android:layout_weight="1"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="20dp">

@@ -53,6 +53,13 @@ public class TeacherLogin extends AppCompatActivity {
         verifyOTPBtn = findViewById(R.id.idBtnVerify);
         generateOTPBtn = findViewById(R.id.idBtnGetOtp);
 
+        if (mAuth.getCurrentUser() != null) {
+            // User is already signed in, navigate to the next activity
+            Intent intent = new Intent(TeacherLogin.this, Teacher_Home.class);
+            startActivity(intent);
+            finish();  // Finish the current activity to prevent the user from going back
+        }
+
         // setting onclick listener for generate OTP button.
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +108,7 @@ public class TeacherLogin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            Intent i = new Intent(TeacherLogin.this, PDF_Upload_Activity.class);
+                            Intent i = new Intent(TeacherLogin.this, Teacher_Home.class);
                             startActivity(i);
                             finish();
                         } else {
